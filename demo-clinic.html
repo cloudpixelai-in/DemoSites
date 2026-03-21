@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Clinic — Demo Website — For Reference Only</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #0a6e6e;
+  --primary-light: #0d8f8f;
+  --primary-pale: #e8f5f5;
+  --accent: #f0a500;
+  --dark: #0d1b1b;
+  --text: #2c3e3e;
+  --muted: #6b8080;
+  --bg: #f7fafa;
+  --white: #ffffff;
+  --border: #d0e5e5;
+  --shadow: 0 4px 24px rgba(10,110,110,0.08);
+  --shadow-lg: 0 12px 48px rgba(10,110,110,0.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--primary);color:#fff;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;}
+.topbar-item{display:flex;align-items:center;gap:6px;opacity:0.9;}
+.topbar-item svg{width:14px;height:14px;fill:var(--accent);}
+
+/* ── NAVBAR ── */
+nav{background:var(--white);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(10,110,110,0.08);border-bottom:2px solid var(--primary-pale);}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:24px;height:24px;fill:#fff;}
+.logo-text{font-family:'Playfair Display',serif;}
+.logo-name{font-size:1.2rem;font-weight:700;color:var(--primary);line-height:1;}
+.logo-tagline{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--text);font-size:14px;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--primary);}
+.nav-btn{background:var(--primary);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;transition:all 0.2s;border:none;cursor:pointer;}
+.nav-btn:hover{background:var(--primary-light);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:24px;height:2px;background:var(--primary);border-radius:2px;transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--white);z-index:200;padding:80px 5% 40px;flex-direction:column;gap:24px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:1.3rem;color:var(--text);text-decoration:none;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border);}
+.mobile-close{position:absolute;top:20px;right:5%;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--text);}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--dark) 0%,#0a3535 60%,#0d5f5f 100%);padding:80px 5% 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(10,110,110,0.15);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-100px;left:30%;width:300px;height:300px;border-radius:50%;background:rgba(240,165,0,0.06);pointer-events:none;}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(240,165,0,0.12);border:1px solid rgba(240,165,0,0.3);color:var(--accent);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:0.5px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);color:#fff;line-height:1.2;margin-bottom:16px;}
+.hero h1 span{color:var(--accent);}
+.hero-sub{color:rgba(255,255,255,0.65);font-size:15px;line-height:1.7;margin-bottom:32px;max-width:480px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:var(--dark);padding:14px 28px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.2s;display:inline-block;}
+.btn-primary:hover{background:#ffb520;transform:translateY(-2px);box-shadow:0 8px 24px rgba(240,165,0,0.3);}
+.btn-outline{background:transparent;color:#fff;padding:14px 28px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);transition:all 0.2s;display:inline-block;}
+.btn-outline:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5);}
+.hero-stats{display:flex;gap:32px;margin-top:40px;}
+.stat{text-align:left;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent);}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.55);margin-top:2px;}
+.hero-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:32px;position:relative;}
+.hero-card-title{font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;margin-bottom:20px;}
+.doctor-card{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.07);border-radius:12px;padding:14px;margin-bottom:12px;}
+.doc-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary-light),var(--accent));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;flex-shrink:0;}
+.doc-name{font-weight:600;color:#fff;font-size:14px;}
+.doc-spec{font-size:12px;color:rgba(255,255,255,0.55);margin-top:2px;}
+.avail{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#4ade80;margin-top:4px;}
+.avail::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;}
+.timing-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:13px;}
+.timing-row:last-child{border-bottom:none;}
+.timing-day{color:rgba(255,255,255,0.6);}
+.timing-time{color:#fff;font-weight:500;}
+
+/* ── TRUST STRIP ── */
+.trust-strip{background:var(--white);padding:20px 5%;border-bottom:1px solid var(--border);}
+.trust-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;gap:16px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--muted);}
+.trust-item svg{width:18px;height:18px;fill:var(--primary);}
+
+/* ── SECTION COMMON ── */
+section{padding:72px 5%;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-label{display:inline-block;background:var(--primary-pale);color:var(--primary);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--dark);margin-bottom:10px;line-height:1.2;}
+.section-sub{color:var(--muted);font-size:15px;max-width:540px;line-height:1.6;}
+.section-head{margin-bottom:48px;}
+.section-head.center{text-align:center;}
+.section-head.center .section-sub{margin:0 auto;}
+
+/* ── SERVICES ── */
+.services-bg{background:var(--white);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.service-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px 20px;transition:all 0.3s;cursor:pointer;}
+.service-card:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:var(--shadow-lg);background:var(--white);}
+.service-icon{width:52px;height:52px;border-radius:14px;background:var(--primary-pale);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.service-icon svg{width:26px;height:26px;fill:var(--primary);}
+.service-name{font-weight:700;font-size:15px;color:var(--dark);margin-bottom:6px;}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.5;}
+
+/* ── DOCTORS ── */
+.doctors-bg{background:var(--bg);}
+.doctors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.doctor-profile{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;}
+.doctor-profile:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.doc-top{background:linear-gradient(135deg,var(--primary),var(--primary-light));padding:32px 20px 20px;text-align:center;position:relative;}
+.doc-big-avatar{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.2);border:3px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-family:'Playfair Display',serif;font-size:2rem;color:#fff;}
+.doc-title{font-family:'Playfair Display',serif;color:#fff;font-size:1.1rem;font-weight:700;}
+.doc-qual{font-size:12px;color:rgba(255,255,255,0.7);margin-top:4px;}
+.doc-body{padding:20px;}
+.doc-spec-badge{display:inline-block;background:var(--primary-pale);color:var(--primary);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:0.5px;}
+.doc-exp{font-size:13px;color:var(--muted);line-height:1.5;}
+.doc-timing{margin-top:12px;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--primary);font-weight:600;}
+
+/* ── WHY US ── */
+.whyus-bg{background:var(--primary);position:relative;overflow:hidden;}
+.whyus-bg::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.whyus-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.whyus-list{display:flex;flex-direction:column;gap:20px;}
+.why-item{display:flex;gap:16px;align-items:flex-start;}
+.why-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.why-icon svg{width:22px;height:22px;fill:var(--accent);}
+.why-text h4{font-weight:600;color:#fff;font-size:15px;margin-bottom:4px;}
+.why-text p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.5;}
+.whyus-visual{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:32px;}
+.whyus-title{font-family:'Playfair Display',serif;color:var(--accent);font-size:1.4rem;margin-bottom:8px;}
+.whyus-sub{color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:24px;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.stat-box{background:rgba(255,255,255,0.07);border-radius:12px;padding:20px;text-align:center;}
+.stat-box-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;}
+.stat-box-label{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.5px;}
+
+/* ── TESTIMONIALS ── */
+.testimonials-bg{background:var(--white);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.testi-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px;}
+.stars{display:flex;gap:3px;margin-bottom:12px;}
+.stars span{font-size:14px;}
+.testi-text{font-size:14px;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:16px;}
+.testi-author{display:flex;align-items:center;gap:10px;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;}
+.testi-name{font-weight:600;font-size:13px;color:var(--dark);}
+.testi-label{font-size:11px;color:var(--muted);}
+
+/* ── APPOINTMENT ── */
+.appt-bg{background:var(--bg);}
+.appt-inner{max-width:700px;margin:0 auto;}
+.appt-form{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:40px;box-shadow:var(--shadow);}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:13px;font-weight:600;color:var(--text);}
+.form-group input,.form-group select,.form-group textarea{padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--bg);transition:border-color 0.2s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);background:var(--white);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-submit{width:100%;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:8px;}
+.form-submit:hover{background:var(--primary-light);transform:translateY(-2px);}
+.form-note{text-align:center;font-size:12px;color:var(--muted);margin-top:12px;}
+
+/* ── FAQ ── */
+.faq-bg{background:var(--white);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px;margin:0 auto;}
+.faq-item{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;transition:all 0.2s;}
+.faq-item:hover{border-color:var(--primary);}
+.faq-q{font-weight:600;font-size:14px;color:var(--dark);display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-q span{font-size:18px;color:var(--primary);}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.6;margin-top:10px;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);color:#fff;padding:48px 5% 20px;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand .logo-name{font-size:1.3rem;color:#fff;}
+.footer-brand .logo-tagline{color:rgba(255,255,255,0.4);}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.5);margin-top:16px;line-height:1.6;}
+.footer-demo-note{display:inline-block;background:rgba(240,165,0,0.12);border:1px solid rgba(240,165,0,0.25);color:var(--accent);font-size:11px;padding:4px 12px;border-radius:20px;margin-top:16px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{text-decoration:none;color:rgba(255,255,255,0.5);font-size:13px;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--accent);}
+.footer-col ul li{font-size:13px;color:rgba(255,255,255,0.5);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-powered{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-powered span{color:var(--accent);}
+
+/* ── WHATSAPP ── */
+.whatsapp-btn{position:fixed;bottom:24px;right:24px;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:999;transition:transform 0.2s;text-decoration:none;}
+.whatsapp-btn:hover{transform:scale(1.1);}
+.whatsapp-btn svg{width:28px;height:28px;fill:#fff;}
+
+/* ── DEMO BANNER ── */
+.demo-banner{background:linear-gradient(90deg,#1a1a2e,#16213e);color:#fff;text-align:center;padding:10px 5%;font-size:12px;}
+.demo-banner span{color:var(--accent);font-weight:700;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-card{display:none;}
+  .whyus-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .nav-links,.nav-btn{display:none;}
+  .hamburger{display:flex;}
+  .topbar{justify-content:center;text-align:center;}
+  .topbar-item:not(:first-child){display:none;}
+  .form-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:20px;}
+  .stat-num{font-size:1.5rem;}
+  .doctors-grid{grid-template-columns:1fr 1fr;}
+  .trust-inner{gap:12px;}
+  .trust-item:nth-child(n+4){display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- Demo Banner -->
+<div class="demo-banner">
+  <span>⚕️ DEMO WEBSITE</span> — Sample Clinic Site by <span>CloudPixel AI</span> · cloudpixelai.in · No real data used
+</div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-item">
+    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    [Demo Location]
+  </div>
+  <div class="topbar-item">
+    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+    Mon–Sat: 9:00 AM – 8:00 PM
+  </div>
+  <div class="topbar-item">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    contact@[demo-only]
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2l-1 9H4l7 5-2 7 3-2 3 2-2-7 7-5h-7z"/></svg>
+    </div>
+    <div class="logo-text">
+      <div class="logo-name">Demo Clinic</div>
+      <div class="logo-tagline">Demo Website · For Reference Only</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#doctors">Doctors</a></li>
+    <li><a href="#about">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#appointment" class="nav-btn">Book Appointment</a>
+  <div class="hamburger" onclick="openMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#doctors" onclick="closeMobile()">Doctors</a>
+  <a href="#about" onclick="closeMobile()">Why Us</a>
+  <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#appointment" onclick="closeMobile()" class="nav-btn" style="text-align:center">Book Appointment</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 4.5H18l-3.75 2.75L15.75 14 12 11.25 8.25 14l1.5-4.75L6 6.5h4.5z"/></svg>
+        Trusted by 5000+ Patients in Hyderabad
+      </div>
+      <h1>Your Health Is Our <span>Priority</span></h1>
+      <p class="hero-sub">Expert medical care with a personal touch. Our experienced team of doctors provides comprehensive healthcare services for your entire family — from routine checkups to specialized treatments.</p>
+      <div class="hero-btns">
+        <a href="#appointment" class="btn-primary">📅 Book Appointment</a>
+        <a href="#services" class="btn-outline">Explore Services →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Specialist Doctors</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5K+</div>
+          <div class="stat-label">Happy Patients</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Satisfaction</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">🩺 Our Doctors Today</div>
+      <div class="doctor-card">
+        <div class="doc-avatar">R</div>
+        <div>
+          <div class="doc-name">Dr. [Doctor Name]</div>
+          <div class="doc-spec">General Medicine</div>
+          <div class="avail">Available Now</div>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doc-avatar" style="background:linear-gradient(135deg,#0a6e6e,#f0a500)">P</div>
+        <div>
+          <div class="doc-name">Dr. [Doctor Name]</div>
+          <div class="doc-spec">Pediatrician</div>
+          <div class="avail">Available Now</div>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doc-avatar" style="background:linear-gradient(135deg,#4a4a8a,#0a6e6e)">V</div>
+        <div>
+          <div class="doc-name">Dr. [Doctor Name]</div>
+          <div class="doc-spec">Cardiologist</div>
+          <div class="avail" style="color:#fbbf24">Available at 3 PM</div>
+        </div>
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08)">
+        <div class="hero-card-title" style="margin-bottom:12px;font-size:1rem;">⏰ Today's Timings</div>
+        <div class="timing-row"><span class="timing-day">Morning OPD</span><span class="timing-time">9:00 – 1:00 PM</span></div>
+        <div class="timing-row"><span class="timing-day">Evening OPD</span><span class="timing-time">4:00 – 8:00 PM</span></div>
+        <div class="timing-row"><span class="timing-day">Emergency</span><span class="timing-time">24×7</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Strip -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg> NABH Accredited Clinic</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg> Easy Online Booking</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg> 8+ Specialist Doctors</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" style="display:none"/></svg>
+      <svg viewBox="0 0 24 24" style="fill:var(--primary)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Cashless Insurance</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 3 Locations in Hyderabad</div>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services" class="services-bg">
+  <div class="section-inner">
+    <div class="section-head center">
+      <div class="section-label">Our Services</div>
+      <div class="section-title">Comprehensive Healthcare <br>Under One Roof</div>
+      <p class="section-sub">From routine health checkups to advanced specialist consultations — we provide complete medical care for your entire family.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+        <div class="service-name">General Medicine</div>
+        <div class="service-desc">Fever, cold, infections, diabetes management and routine health checkups for all ages.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg></div>
+        <div class="service-name">Cardiology</div>
+        <div class="service-desc">ECG, Echo, heart disease diagnosis and preventive cardiac care by experienced cardiologists.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M16.5 6.5c0 1.5-.5 2.5-1.5 3.5L12 13l-3-3C8 9 7.5 8 7.5 6.5 7.5 4.6 9.1 3 11 3h2c1.9 0 3.5 1.6 3.5 3.5zM12 1C9.2 1 7 3.2 7 6s2 5 5 8c3-3 5-5.2 5-8s-2.2-5-5-5z"/><path d="M12 14c-5 3-8 5-8 8h16c0-3-3-5-8-8z"/></svg></div>
+        <div class="service-name">Pediatrics</div>
+        <div class="service-desc">Child healthcare from birth to adolescence — vaccinations, growth monitoring and treatment.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg></div>
+        <div class="service-name">Nutrition & Diet</div>
+        <div class="service-desc">Personalized diet plans for weight management, diabetes, and lifestyle disease prevention.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.71-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.99-3.98zM12 9c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-4.71 1.96L3.66 7.34l3.63-3.63 3.62 3.62-3.62 3.63zM10 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2.66 9.34l-3.63-3.62 3.63-3.63 3.62 3.62-3.62 3.63z"/></svg></div>
+        <div class="service-name">Dermatology</div>
+        <div class="service-desc">Skin, hair and nail treatments. Acne, eczema, psoriasis and cosmetic dermatology.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+        <div class="service-name">Diagnostics / Lab</div>
+        <div class="service-desc">Blood tests, urine analysis, X-ray, ECG with same-day reports. Home collection available.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <div class="service-name">Orthopedics</div>
+        <div class="service-desc">Bone, joint and muscle pain treatment. Sports injuries, fractures and physiotherapy.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+        <div class="service-name">Health Packages</div>
+        <div class="service-desc">Comprehensive health checkup packages — Basic, Standard and Premium for all age groups.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Doctors -->
+<section id="doctors" class="doctors-bg">
+  <div class="section-inner">
+    <div class="section-head center">
+      <div class="section-label">Our Doctors</div>
+      <div class="section-title">Meet Our Expert Medical Team</div>
+      <p class="section-sub">Experienced, compassionate doctors dedicated to providing the best healthcare for you and your family.</p>
+    </div>
+    <div class="doctors-grid">
+      <div class="doctor-profile">
+        <div class="doc-top">
+          <div class="doc-big-avatar">R</div>
+          <div class="doc-title">Dr. [Doctor Name]</div>
+          <div class="doc-qual">MBBS, MD (General Medicine)</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-spec-badge">General Medicine</div>
+          <div class="doc-exp">15+ years of experience treating chronic conditions, infections, diabetes and providing preventive healthcare for all age groups.</div>
+          <div class="doc-timing">⏰ Mon–Sat · 9 AM – 1 PM</div>
+        </div>
+      </div>
+      <div class="doctor-profile">
+        <div class="doc-top" style="background:linear-gradient(135deg,#0a5a6e,#0d8f7a)">
+          <div class="doc-big-avatar" style="background:rgba(255,255,255,0.2)">P</div>
+          <div class="doc-title">Dr. [Doctor Name]</div>
+          <div class="doc-qual">MBBS, DCH (Pediatrics)</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-spec-badge">Pediatrician</div>
+          <div class="doc-exp">12 years specializing in child health — from newborns to teenagers. Vaccinations, growth issues and childhood diseases.</div>
+          <div class="doc-timing">⏰ Mon–Sat · 4 PM – 8 PM</div>
+        </div>
+      </div>
+      <div class="doctor-profile">
+        <div class="doc-top" style="background:linear-gradient(135deg,#2a3a6e,#0a4a6e)">
+          <div class="doc-big-avatar" style="background:rgba(255,255,255,0.2)">V</div>
+          <div class="doc-title">Dr. [Doctor Name]</div>
+          <div class="doc-qual">MBBS, DM (Cardiology)</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-spec-badge">Cardiologist</div>
+          <div class="doc-exp">Senior cardiologist with 18 years experience. Expert in heart disease prevention, ECG analysis and cardiac rehabilitation.</div>
+          <div class="doc-timing">⏰ Tue, Thu, Sat · 3 PM – 7 PM</div>
+        </div>
+      </div>
+      <div class="doctor-profile">
+        <div class="doc-top" style="background:linear-gradient(135deg,#6e2a4a,#8a3a2a)">
+          <div class="doc-big-avatar" style="background:rgba(255,255,255,0.2)">S</div>
+          <div class="doc-title">Dr. [Doctor Name]</div>
+          <div class="doc-qual">MBBS, MS (Gynecology)</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-spec-badge">Gynecologist</div>
+          <div class="doc-exp">10 years in women's health — prenatal care, PCOS, fertility consultations and complete gynecological treatments.</div>
+          <div class="doc-timing">⏰ Mon, Wed, Fri · 10 AM – 2 PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section id="about" class="whyus-bg">
+  <div class="section-inner">
+    <div class="whyus-grid">
+      <div>
+        <div class="section-label" style="background:rgba(255,255,255,0.1);color:var(--accent)">Why Choose Us</div>
+        <div class="section-title" style="color:#fff;margin-top:12px;">Healthcare You Can <br>Always Trust</div>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;margin:16px 0 32px;max-width:440px;">We believe every patient deserves personalized attention and quality care. Our clinic combines advanced medical expertise with genuine compassion.</p>
+        <div class="whyus-list">
+          <div class="why-item">
+            <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="why-text"><h4>NABH Accredited</h4><p>Certified for quality and safety standards by National Accreditation Board for Hospitals.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+            <div class="why-text"><h4>Easy Appointment Booking</h4><p>Book online, get SMS confirmation and doctor reminder. No long queues, no waiting.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div class="why-text"><h4>Digital Health Records</h4><p>Access your prescriptions, lab reports and medical history anytime from your phone.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
+            <div class="why-text"><h4>Minimal Waiting Time</h4><p>Structured appointment slots ensure you spend less time in waiting room and more with your doctor.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="whyus-visual">
+        <div class="whyus-title">Our Achievements</div>
+        <div class="whyus-sub">15 years of trusted healthcare in Hyderabad</div>
+        <div class="stats-grid">
+          <div class="stat-box"><div class="stat-box-num">5,000+</div><div class="stat-box-label">PATIENTS TREATED</div></div>
+          <div class="stat-box"><div class="stat-box-num">8</div><div class="stat-box-label">SPECIALIST DOCTORS</div></div>
+          <div class="stat-box"><div class="stat-box-num">15+</div><div class="stat-box-label">YEARS EXPERIENCE</div></div>
+          <div class="stat-box"><div class="stat-box-num">98%</div><div class="stat-box-label">PATIENT SATISFACTION</div></div>
+        </div>
+        <div style="margin-top:24px;padding:16px;background:rgba(240,165,0,0.08);border:1px solid rgba(240,165,0,0.2);border-radius:12px;">
+          <div style="color:var(--accent);font-weight:700;font-size:14px;margin-bottom:6px;">🏆 Accepting Health Insurance</div>
+          <div style="color:rgba(255,255,255,0.55);font-size:12px;line-height:1.6;">Star Health · HDFC Ergo · New India · United India · ICICI Lombard and 20+ more insurance plans accepted.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="testimonials-bg">
+  <div class="section-inner">
+    <div class="section-head center">
+      <div class="section-label">Patient Reviews</div>
+      <div class="section-title">What Our Patients Say</div>
+      <p class="section-sub">Real feedback from real patients who trust Demo Clinic for their healthcare needs.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <div class="testi-text">"Dr. [Doctor Name] is an exceptional doctor. He takes time to explain everything clearly and the treatment was very effective. The clinic is clean, well-organized and the staff is very polite."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div><div class="testi-name">[Patient Name]</div><div class="testi-label">Patient · General Medicine</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <div class="testi-text">"Best pediatrician I have visited! The doctor is so gentle with children. My son feels comfortable here and never cries. Highly recommend to all parents."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#6e2a4a,#8a3a2a)">K</div>
+          <div><div class="testi-name">[Patient Name]</div><div class="testi-label">Patient · Pediatrics</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <div class="testi-text">"The cardiologist correctly diagnosed my heart condition which other doctors missed. Expertise in cardiology is outstanding. The online booking system is very convenient."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#2a3a6e,#0a4a6e)">M</div>
+          <div><div class="testi-name">[Patient Name]</div><div class="testi-label">Patient · Cardiology</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Appointment -->
+<section id="appointment" class="appt-bg">
+  <div class="section-inner">
+    <div class="section-head center">
+      <div class="section-label">Book Appointment</div>
+      <div class="section-title">Schedule Your Visit Today</div>
+      <p class="section-sub">Fill in the form below and our team will confirm your appointment within 30 minutes.</p>
+    </div>
+    <div class="appt-inner">
+      <div class="appt-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Patient Name *</label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" placeholder="Your age">
+          </div>
+          <div class="form-group">
+            <label>Mobile Number *</label>
+            <input type="tel" placeholder="Your contact number">
+          </div>
+          <div class="form-group">
+            <label>Preferred Date *</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Select Doctor *</label>
+            <select>
+              <option value="">-- Choose Doctor --</option>
+              <option>Dr. [Doctor Name] — General Medicine</option>
+              <option>Dr. [Doctor Name] — Pediatrics</option>
+              <option>Dr. [Doctor Name] — Cardiology</option>
+              <option>Dr. [Doctor Name] — Gynecology</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select>
+              <option>Morning (9 AM – 1 PM)</option>
+              <option>Evening (4 PM – 8 PM)</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Reason for Visit</label>
+            <textarea placeholder="Briefly describe your symptoms or reason for visit..."></textarea>
+          </div>
+        </div>
+        <button class="form-submit" onclick="alert('✅ Demo Mode: Appointment request submitted!\n\nIn the real website, our team will call you to confirm.')">
+          📅 Book My Appointment
+        </button>
+        <p class="form-note">🔒 Your information is safe with us · Demo form — no real data submitted</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="contact" class="faq-bg">
+  <div class="section-inner">
+    <div class="section-head center">
+      <div class="section-label">FAQ</div>
+      <div class="section-title">Frequently Asked Questions</div>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you accept health insurance? <span>+</span></div>
+        <div class="faq-a">Yes, we accept 20+ major insurance plans including Star Health, HDFC Ergo, New India Assurance, United India and ICICI Lombard. Please carry your insurance card during your visit.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How do I book an appointment? <span>+</span></div>
+        <div class="faq-a">You can book an appointment through our website form above, call us directly, or walk in to our clinic. Online bookings receive SMS confirmation within 30 minutes.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Are home visits available? <span>+</span></div>
+        <div class="faq-a">Yes, we offer home visits for elderly and bedridden patients within a 10 km radius. Home collection for lab tests is also available every day from 7 AM to 10 AM.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What are your clinic timings? <span>+</span></div>
+        <div class="faq-a">Morning OPD: 9:00 AM – 1:00 PM. Evening OPD: 4:00 PM – 8:00 PM. Monday to Saturday. Emergency services are available 24×7. Closed on Sundays (Emergency only).</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you have a diagnostic lab? <span>+</span></div>
+        <div class="faq-a">Yes, our in-house diagnostic lab offers blood tests, urine analysis, X-ray, ECG and ultrasound. Reports for most tests are available on the same day. Online report access coming soon.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I consult online (teleconsultation)? <span>+</span></div>
+        <div class="faq-a">Yes, we offer video consultations for follow-up visits and non-emergency cases. Book through our website and receive a video call link. Teleconsultation is available Mon–Sat, 10 AM – 6 PM.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2l-1 9H4l7 5-2 7 3-2 3 2-2-7 7-5h-7z"/></svg></div>
+          <div class="logo-text">
+            <div class="logo-name">Demo Clinic</div>
+            <div class="logo-tagline">Demo Website · For Reference Only</div>
+          </div>
+        </div>
+        <p class="footer-desc">Providing quality healthcare to families in Hyderabad since 2009. NABH accredited clinic with experienced specialist doctors.</p>
+        <div class="footer-demo-note">⚠️ Demo Website — No Real Data · cloudpixelai.in</div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">General Medicine</a></li>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Pediatrics</a></li>
+          <li><a href="#">Gynecology</a></li>
+          <li><a href="#">Dermatology</a></li>
+          <li><a href="#">Diagnostics / Lab</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic Info</h4>
+        <ul>
+          <li>📍 [Demo Location] (Demo)</li>
+          <li>⏰ Mon–Sat: 9 AM – 8 PM</li>
+          <li>🚨 Emergency: 24×7</li>
+          <li>📧 [Demo — No Real Email]</li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Demo Clinic Website · Created by CloudPixel AI · cloudpixelai.in</div>
+      <div class="footer-powered">Website by <span>CloudPixel AI</span> · cloudpixelai.in</div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="#" class="whatsapp-btn" onclick="alert('Demo Mode: WhatsApp contact would open here.')">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function openMobile(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';}
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
+function toggleFaq(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+  document.querySelectorAll('.faq-q span').forEach(s=>s.textContent='+');
+  if(!isOpen){el.classList.add('open');el.querySelector('.faq-q span').textContent='−';}
+}
+</script>
+</body>
+</html>
