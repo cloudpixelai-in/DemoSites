@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Coaching Centre — Premier Coaching | Andhra Pradesh</title>
+<meta name="description" content="Demo Coaching Centre — Top coaching for IIT-JEE, NEET, Civil Services and Bank Exams in Andhra Pradesh.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06080f;
+  --bg2:#0a0d18;
+  --bg3:#0f1422;
+  --blue:#3b82f6;
+  --blue2:#60a5fa;
+  --blue3:#1d4ed8;
+  --gold:#f59e0b;
+  --gold2:#fbbf24;
+  --wh:#ffffff;
+  --gr:#6b7280;
+  --gr2:#374151;
+  --bd:rgba(59,130,246,0.12);
+  --bd2:rgba(255,255,255,0.06);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--wh);overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--blue3);}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:999;height:64px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(6,8,15,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--bd2);}
+.nlogo{display:flex;align-items:center;gap:10px;}
+.nlsq{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--blue3));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#fff;box-shadow:0 0 16px rgba(59,130,246,.35);}
+.nltx{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--wh);}
+.nlinks{display:flex;gap:2rem;list-style:none;}
+.nlinks a{color:var(--gr);font-size:.82rem;text-decoration:none;font-weight:500;transition:color .2s;}
+.nlinks a:hover{color:var(--blue2);}
+.ncta{background:linear-gradient(135deg,var(--blue),var(--blue3));color:#fff;padding:9px 22px;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s;}
+.ncta:hover{opacity:.9;transform:translateY(-1px);}
+
+/* HERO */
+.hero{min-height:100vh;padding:64px 5% 60px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 80% 30%,rgba(59,130,246,.06),transparent),radial-gradient(ellipse 50% 50% at 10% 80%,rgba(245,158,11,.04),transparent);}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.02) 1px,transparent 1px);background-size:65px 65px;}
+.hleft{position:relative;z-index:1;}
+.htag{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.08);border:1px solid var(--bd);padding:6px 16px;border-radius:100px;font-size:.7rem;font-weight:700;color:var(--blue2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5rem;}
+.hdot{width:6px;height:6px;background:var(--blue2);border-radius:50%;animation:blink 1.4s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,6vw,5.5rem);line-height:.93;letter-spacing:2px;margin-bottom:1.1rem;}
+.hero h1 .w1{color:var(--wh);display:block;}
+.hero h1 .w2{color:var(--blue2);display:block;}
+.hero h1 .w3{color:rgba(255,255,255,.45);display:block;font-size:clamp(.95rem,1.6vw,1.2rem);font-family:'DM Sans',sans-serif;font-weight:400;letter-spacing:0;margin-top:.8rem;line-height:1.65;}
+.hbtns{display:flex;gap:.9rem;flex-wrap:wrap;margin:1.8rem 0 2.5rem;}
+.bblue{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--blue),var(--blue3));color:#fff;padding:13px 30px;border-radius:10px;font-weight:700;font-size:.88rem;text-decoration:none;transition:all .25s;box-shadow:0 8px 24px rgba(59,130,246,.3);}
+.bblue:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(59,130,246,.4);}
+.bgh{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--wh);padding:13px 28px;border-radius:10px;font-weight:600;font-size:.88rem;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:all .25s;}
+.bgh:hover{border-color:var(--blue2);color:var(--blue2);}
+.hkpis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(59,130,246,.15);border-radius:14px;overflow:hidden;}
+.kpi{padding:1rem .6rem;text-align:center;border-right:1px solid rgba(59,130,246,.1);}
+.kpi:last-child{border-right:none;}
+.kpin{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--blue2);}
+.kpil{font-size:.6rem;color:var(--gr);margin-top:3px;letter-spacing:.4px;}
+
+/* RIGHT CARDS */
+.hright{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;}
+.hcard{background:rgba(15,20,34,.9);border:1px solid var(--bd);border-radius:14px;padding:14px 18px;backdrop-filter:blur(20px);}
+.hcard-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.hcard-ic{width:34px;height:34px;border-radius:9px;background:rgba(59,130,246,.1);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:1.05rem;}
+.hcard-t{font-weight:600;font-size:.88rem;}
+.hcard-s{font-size:.7rem;color:var(--gr);}
+.hbar{height:4px;background:rgba(59,130,246,.1);border-radius:2px;overflow:hidden;margin-bottom:5px;}
+.hfill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--blue2));}
+.hstat{font-size:.7rem;color:var(--gr);display:flex;justify-content:space-between;}
+
+/* TICKER */
+.ticker{border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);padding:10px 0;overflow:hidden;}
+.tinner{display:flex;animation:tr 24s linear infinite;white-space:nowrap;}
+.ti{font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gr2);padding:0 2rem;}
+.td{color:var(--blue);padding:0 4px;}
+@keyframes tr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.sec{padding:85px 5%;position:relative;z-index:1;}
+.seca{background:var(--bg2);}
+.stag{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:1rem;}
+.stag::before{content:'';width:20px;height:2px;background:var(--blue2);}
+.stag::after{content:'';width:5px;height:5px;border:2px solid var(--blue2);border-radius:50%;}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:2px;line-height:1;margin-bottom:.8rem;}
+.stitle .bl{color:var(--blue2);}
+.stitle .gl{color:var(--gold2);}
+.sdesc{color:var(--gr);font-size:.9rem;line-height:1.8;max-width:520px;}
+
+/* COURSES */
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.8rem;}
+.cc{background:var(--bg3);border:1px solid var(--bd2);border-radius:16px;padding:1.7rem;position:relative;overflow:hidden;transition:all .3s;cursor:pointer;}
+.cc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2));transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.cc:hover{border-color:var(--bd);transform:translateY(-5px);}
+.cc:hover::after{transform:scaleX(1);}
+.cc-ic{font-size:2.2rem;margin-bottom:.9rem;display:block;}
+.cc-ex{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue2);margin-bottom:.45rem;}
+.cc h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+.cc p{font-size:.77rem;color:var(--gr);line-height:1.65;margin-bottom:.9rem;}
+.cc-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.9rem;}
+.ctg{font-size:.62rem;font-weight:600;padding:2px 8px;background:rgba(59,130,246,.07);border:1px solid var(--bd);border-radius:4px;color:rgba(96,165,250,.8);}
+.cc-lnk{font-size:.76rem;font-weight:600;color:var(--blue2);display:inline-flex;align-items:center;gap:5px;transition:gap .2s;}
+.cc:hover .cc-lnk{gap:9px;}
+
+/* WHY */
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:2.5rem;}
+.wlist{display:flex;flex-direction:column;gap:1rem;}
+.witem{display:flex;gap:.9rem;align-items:flex-start;padding:1.1rem;background:var(--bg3);border:1px solid var(--bd2);border-radius:12px;transition:border .2s;}
+.witem:hover{border-color:var(--bd);}
+.wic{width:40px;height:40px;border-radius:10px;background:rgba(59,130,246,.08);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.wt{font-weight:600;font-size:.88rem;margin-bottom:3px;font-family:'Syne',sans-serif;}
+.wd{font-size:.76rem;color:var(--gr);line-height:1.6;}
+.wvis{border-radius:18px;overflow:hidden;border:1px solid rgba(59,130,246,.15);position:relative;}
+.wvis img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(.65) saturate(1.1);}
+.wvis-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(0,0,0,.4));}
+.wvis-cap{position:absolute;bottom:0;left:0;right:0;padding:1.3rem;background:linear-gradient(to top,rgba(6,8,15,.97),transparent);}
+.wvis-cap h4{font-family:'Syne',sans-serif;font-size:.97rem;font-weight:700;color:var(--blue2);}
+.wvis-cap p{font-size:.72rem;color:var(--gr);margin-top:3px;}
+
+/* RESULTS */
+.rg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.8rem;}
+.rc{background:var(--bg3);border:1px solid var(--bd2);border-radius:16px;padding:1.5rem;text-align:center;position:relative;overflow:hidden;transition:all .25s;}
+.rc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2));}
+.rc:hover{transform:translateY(-4px);border-color:var(--bd);}
+.rcn{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--blue2);}
+.rcl{font-size:.67rem;color:var(--gr);margin-top:4px;letter-spacing:.4px;}
+
+/* BATCHES */
+.bg2{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.8rem;}
+.bat{background:var(--bg3);border:1px solid var(--bd2);border-radius:14px;padding:1.5rem;transition:border .25s;}
+.bat:hover{border-color:var(--bd);}
+.bat-type{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem;}
+.bat h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+.bat p{font-size:.77rem;color:var(--gr);line-height:1.6;margin-bottom:1rem;}
+.brows{display:flex;flex-direction:column;gap:.4rem;}
+.brow{display:flex;justify-content:space-between;font-size:.74rem;}
+.brl{color:var(--gr2);}
+.brv{color:var(--wh);font-weight:500;}
+
+/* TESTIMONIALS */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.8rem;}
+.tc{background:var(--bg3);border:1px solid var(--bd2);border-radius:16px;padding:1.6rem;transition:all .3s;}
+.tc:hover{transform:translateY(-4px);border-color:var(--bd);}
+.tst{font-size:.85rem;letter-spacing:2px;color:var(--gold2);margin-bottom:.8rem;}
+.ttx{font-size:.82rem;color:#9ca3af;line-height:1.78;font-style:italic;margin-bottom:1.2rem;}
+.tau{display:flex;align-items:center;gap:10px;padding-top:.9rem;border-top:1px solid var(--bd2);}
+.tav{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue3));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.88rem;color:#fff;flex-shrink:0;}
+.tnm{font-weight:600;font-size:.83rem;}
+.trl{font-size:.66rem;color:var(--gr);}
+
+/* CONTACT */
+.ctgrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:2.8rem;align-items:start;}
+.ci-list{display:flex;flex-direction:column;gap:1rem;}
+.cicard{display:flex;align-items:center;gap:12px;padding:.85rem;background:var(--bg3);border:1px solid var(--bd2);border-radius:11px;transition:border .2s;}
+.cicard:hover{border-color:var(--bd);}
+.ciic{width:36px;height:36px;border-radius:9px;background:rgba(59,130,246,.1);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.cit{font-weight:600;font-size:.86rem;color:var(--wh);}
+.cis{font-size:.75rem;color:var(--gr);}
+.cform{background:var(--bg3);border:1px solid var(--bd2);border-radius:18px;padding:2rem;position:relative;overflow:hidden;}
+.cform::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2));}
+.cftitle{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;margin-bottom:1.2rem;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem;}
+.finp{background:var(--bg2);border:1px solid var(--bd2);border-radius:8px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:.86rem;color:var(--wh);outline:none;width:100%;transition:border .2s;}
+.finp:focus{border-color:var(--blue2);}
+.finp::placeholder{color:var(--gr2);}
+select.finp{cursor:pointer;}
+textarea.finp{resize:vertical;}
+.fsub{width:100%;padding:12px;background:linear-gradient(135deg,var(--blue),var(--blue3));color:#fff;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .25s;margin-top:.3rem;box-shadow:0 8px 22px rgba(59,130,246,.3);}
+.fsub:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(59,130,246,.4);}
+.demo-note{font-size:.68rem;color:var(--gr);text-align:center;margin-top:.7rem;}
+
+/* CTA SECTION */
+.ctasec{padding:85px 5%;text-align:center;position:relative;overflow:hidden;}
+.ctaorb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);border-radius:50%;pointer-events:none;}
+.ctasec h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,5vw,4.5rem);letter-spacing:2px;line-height:.93;margin-bottom:1.2rem;position:relative;z-index:1;}
+.ctasec h2 .bl{color:var(--blue2);}
+.ctasec p{color:var(--gr);font-size:.95rem;margin-bottom:2rem;position:relative;z-index:1;}
+.ctabtns{display:flex;justify-content:center;gap:.9rem;flex-wrap:wrap;position:relative;z-index:1;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bd2);padding:50px 5% 0;position:relative;z-index:1;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
+.flb p{font-size:.77rem;color:var(--gr);line-height:1.8;max-width:250px;margin-top:.8rem;}
+footer h5{font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(96,165,250,.5);margin-bottom:.9rem;}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+footer ul a{color:var(--gr2);text-decoration:none;font-size:.77rem;transition:color .2s;}
+footer ul a:hover{color:var(--blue2);}
+.fbot{border-top:1px solid var(--bd2);padding:16px 5%;display:flex;justify-content:space-between;align-items:center;font-size:.68rem;color:var(--gr2);margin-top:2rem;flex-wrap:wrap;gap:8px;}
+.demo-badge{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);color:var(--gold2);font-size:.68rem;padding:4px 12px;border-radius:20px;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav .nlinks{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hright{display:none;}
+  .cg,.bg2,.tg{grid-template-columns:1fr 1fr;}
+  .wg{grid-template-columns:1fr;}
+  .rg{grid-template-columns:repeat(2,1fr);}
+  .ctgrid{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .sec{padding:60px 4%;}
+  .hkpis,.cg,.bg2,.tg,.rg{grid-template-columns:1fr;}
+  .frow{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr;}
+}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;}
+.rv.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nlogo">
+    <div class="nlsq">D</div>
+    <div class="nltx">DEMO COACHING CENTRE</div>
+  </div>
+  <ul class="nlinks">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#batches">Batches</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="ncta">Enroll Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hgrid"></div>
+  <div class="hleft">
+    <div class="htag"><span class="hdot"></span>Andhra Pradesh's Premier Coaching Centre</div>
+    <h1>
+      <span class="w1">CRACK YOUR</span>
+      <span class="w2">DREAM EXAM</span>
+      <span class="w3">Expert coaching for IIT-JEE, NEET, Civil Services &amp; Bank Exams. Proven results across AP &amp; Telangana. Demo website for reference only.</span>
+    </h1>
+    <div class="hbtns">
+      <a href="#contact" class="bblue">🎯 Book Free Demo</a>
+      <a href="#courses" class="bgh">View Courses →</a>
+    </div>
+    <div class="hkpis">
+      <div class="kpi"><div class="kpin">5000+</div><div class="kpil">Students Trained</div></div>
+      <div class="kpi"><div class="kpin">98%</div><div class="kpil">Pass Rate</div></div>
+      <div class="kpi"><div class="kpin">15+</div><div class="kpil">Years Experience</div></div>
+      <div class="kpi"><div class="kpin">200+</div><div class="kpil">Top Selections</div></div>
+    </div>
+  </div>
+  <div class="hright">
+    <div class="hcard rv">
+      <div class="hcard-top"><div class="hcard-ic">🏆</div><div><div class="hcard-t">IIT-JEE 2024</div><div class="hcard-s">Engineering selections</div></div></div>
+      <div class="hbar"><div class="hfill" style="width:92%"></div></div>
+      <div class="hstat"><span>Selection Rate</span><span style="color:var(--blue2);font-weight:600">92%</span></div>
+    </div>
+    <div class="hcard rv">
+      <div class="hcard-top"><div class="hcard-ic">🩺</div><div><div class="hcard-t">NEET 2024</div><div class="hcard-s">Medical aspirants</div></div></div>
+      <div class="hbar"><div class="hfill" style="width:87%"></div></div>
+      <div class="hstat"><span>Success Rate</span><span style="color:var(--blue2);font-weight:600">87%</span></div>
+    </div>
+    <div class="hcard rv">
+      <div class="hcard-top"><div class="hcard-ic">🏛️</div><div><div class="hcard-t">Civil Services</div><div class="hcard-s">IAS/IPS selections</div></div></div>
+      <div class="hbar"><div class="hfill" style="width:76%"></div></div>
+      <div class="hstat"><span>Qualified</span><span style="color:var(--blue2);font-weight:600">76%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tinner">
+    <span class="ti">IIT-JEE</span><span class="td">✦</span><span class="ti">NEET</span><span class="td">✦</span><span class="ti">Civil Services</span><span class="td">✦</span><span class="ti">Bank Exams</span><span class="td">✦</span><span class="ti">SSC Railway</span><span class="td">✦</span><span class="ti">Inter Board</span><span class="td">✦</span><span class="ti">Demo Coaching Centre</span><span class="td">✦</span><span class="ti">Andhra Pradesh</span><span class="td">✦</span>
+    <span class="ti">IIT-JEE</span><span class="td">✦</span><span class="ti">NEET</span><span class="td">✦</span><span class="ti">Civil Services</span><span class="td">✦</span><span class="ti">Bank Exams</span><span class="td">✦</span><span class="ti">SSC Railway</span><span class="td">✦</span><span class="ti">Inter Board</span><span class="td">✦</span><span class="ti">Demo Coaching Centre</span><span class="td">✦</span><span class="ti">Andhra Pradesh</span><span class="td">✦</span>
+  </div>
+</div>
+
+<!-- COURSES -->
+<section class="sec" id="courses">
+  <div class="stag">Our Programs</div>
+  <div class="stitle">COURSES FOR <span class="bl">EVERY GOAL</span></div>
+  <p class="sdesc">Comprehensive coaching programs for all major competitive exams across AP &amp; Telangana.</p>
+  <div class="cg rv">
+    <div class="cc">
+      <span class="cc-ic">⚛️</span>
+      <div class="cc-ex">Engineering</div>
+      <h3>IIT-JEE Main &amp; Advanced</h3>
+      <p>Intensive coaching with daily practice tests, doubt sessions and rank booster programs for engineering aspirants.</p>
+      <div class="cc-tags"><span class="ctg">Physics</span><span class="ctg">Chemistry</span><span class="ctg">Maths</span><span class="ctg">Mock Tests</span></div>
+      <a href="#contact" class="cc-lnk">Enroll Now →</a>
+    </div>
+    <div class="cc">
+      <span class="cc-ic">🧬</span>
+      <div class="cc-ex">Medical</div>
+      <h3>NEET UG / PG Coaching</h3>
+      <p>Biology-focused batches with NCERT mastery, past paper analysis and all-India mock test series for medical aspirants.</p>
+      <div class="cc-tags"><span class="ctg">Biology</span><span class="ctg">Physics</span><span class="ctg">Chemistry</span><span class="ctg">AIIMS</span></div>
+      <a href="#contact" class="cc-lnk">Enroll Now →</a>
+    </div>
+    <div class="cc">
+      <span class="cc-ic">🏛️</span>
+      <div class="cc-ex">Civil Services</div>
+      <h3>UPSC / APPSC / TSPSC</h3>
+      <p>Structured coaching for Group 1, Group 2, Group 3 with GS, current affairs and interview preparation.</p>
+      <div class="cc-tags"><span class="ctg">GS Paper</span><span class="ctg">Current Affairs</span><span class="ctg">Essay</span><span class="ctg">Interview</span></div>
+      <a href="#contact" class="cc-lnk">Enroll Now →</a>
+    </div>
+    <div class="cc">
+      <span class="cc-ic">🏦</span>
+      <div class="cc-ex">Banking</div>
+      <h3>IBPS / SBI / RBI Exams</h3>
+      <p>Quantitative aptitude, reasoning, English and banking awareness with daily online tests and sectional practice.</p>
+      <div class="cc-tags"><span class="ctg">Quant</span><span class="ctg">Reasoning</span><span class="ctg">English</span><span class="ctg">GA</span></div>
+      <a href="#contact" class="cc-lnk">Enroll Now →</a>
+    </div>
+    <div class="cc">
+      <span class="cc-ic">📚</span>
+      <div class="cc-ex">School Level</div>
+      <h3>10th Board &amp; Intermediate</h3>
+      <p>Concept-based teaching for AP state board with Telugu medium option available for all subjects.</p>
+      <div class="cc-tags"><span class="ctg">Telugu Medium</span><span class="ctg">English Medium</span><span class="ctg">Science</span><span class="ctg">Maths</span></div>
+      <a href="#contact" class="cc-lnk">Enroll Now →</a>
+    </div>
+    <div class="cc">
+      <span class="cc-ic">🚂</span>
+      <div class="cc-ex">Govt Jobs</div>
+      <h3>SSC / Railway / Defence</h3>
+      <p>Complete preparation for SSC CGL, Railway Group D, NDA, CDS and all central government competitive exams.</p>
+      <div class="cc-tags"><span class="ctg">SSC CGL</span><span class="ctg">Railway</span><span class="ctg">NDA</span><span class="ctg">CDS</span></div>
+      <a href="#contact" class="cc-lnk">Enroll Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec seca" id="why">
+  <div class="stag">Why Choose Us</div>
+  <div class="stitle">YOUR SUCCESS IS <span class="bl">OUR MISSION</span></div>
+  <div class="wg rv">
+    <div class="wlist">
+      <div class="witem"><div class="wic">🎓</div><div><div class="wt">Expert Faculty</div><div class="wd">Experienced teachers with proven track records in competitive exam coaching across AP &amp; Telangana.</div></div></div>
+      <div class="witem"><div class="wic">📊</div><div><div class="wt">Daily Test Series</div><div class="wd">Chapter-wise tests, weekly mocks and all-India simulations with detailed performance analytics for every student.</div></div></div>
+      <div class="witem"><div class="wic">📱</div><div><div class="wt">Online + Offline Hybrid</div><div class="wd">Attend classes in-centre or online. All sessions recorded for revision. Doubt clearing available daily.</div></div></div>
+      <div class="witem"><div class="wic">🏠</div><div><div class="wt">Hostel Facility</div><div class="wd">Safe and comfortable hostel for outstation students with study rooms, mess and 24/7 security.</div></div></div>
+    </div>
+    <div class="wvis">
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="Coaching centre classroom">
+      <div class="wvis-ov"></div>
+      <div class="wvis-cap">
+        <h4>State-of-the-Art Facility</h4>
+        <p>AC classrooms · Smart boards · Digital library</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="sec" id="results">
+  <div class="stag">Track Record</div>
+  <div class="stitle">RESULTS THAT <span class="bl">SPEAK</span></div>
+  <div class="rg rv">
+    <div class="rc"><div class="rcn">500+</div><div class="rcl">IIT / NIT Selections</div></div>
+    <div class="rc"><div class="rcn">800+</div><div class="rcl">NEET Qualified</div></div>
+    <div class="rc"><div class="rcn">120+</div><div class="rcl">Civil Service Officers</div></div>
+    <div class="rc"><div class="rcn">1500+</div><div class="rcl">Bank &amp; Govt Jobs</div></div>
+  </div>
+</section>
+
+<!-- BATCHES -->
+<section class="sec seca" id="batches">
+  <div class="stag">Upcoming Batches</div>
+  <div class="stitle">CHOOSE YOUR <span class="gl">BATCH</span></div>
+  <div class="bg2 rv">
+    <div class="bat">
+      <div class="bat-type">Morning Batch</div>
+      <h3>IIT-JEE 2025–26</h3>
+      <p>Intensive daily classes for 11th &amp; 12th students preparing for JEE Main and Advanced.</p>
+      <div class="brows">
+        <div class="brow"><span class="brl">Timing</span><span class="brv">6:00 AM – 9:00 AM</span></div>
+        <div class="brow"><span class="brl">Duration</span><span class="brv">2 Years</span></div>
+        <div class="brow"><span class="brl">Seats</span><span class="brv">40 Only</span></div>
+        <div class="brow"><span class="brl">Starts</span><span class="brv">June 2025</span></div>
+      </div>
+    </div>
+    <div class="bat">
+      <div class="bat-type">Weekend Batch</div>
+      <h3>NEET Crash Course</h3>
+      <p>Intensive weekend batch for 12th pass and dropper students targeting NEET 2025.</p>
+      <div class="brows">
+        <div class="brow"><span class="brl">Timing</span><span class="brv">Sat–Sun · 8AM–6PM</span></div>
+        <div class="brow"><span class="brl">Duration</span><span class="brv">6 Months</span></div>
+        <div class="brow"><span class="brl">Seats</span><span class="brv">30 Only</span></div>
+        <div class="brow"><span class="brl">Starts</span><span class="brv">July 2025</span></div>
+      </div>
+    </div>
+    <div class="bat">
+      <div class="bat-type">Evening Batch</div>
+      <h3>Civil Services APPSC</h3>
+      <p>Comprehensive coaching for Group 1 &amp; 2 with daily current affairs and GS sessions.</p>
+      <div class="brows">
+        <div class="brow"><span class="brl">Timing</span><span class="brv">5:00 PM – 8:00 PM</span></div>
+        <div class="brow"><span class="brl">Duration</span><span class="brv">1 Year</span></div>
+        <div class="brow"><span class="brl">Seats</span><span class="brv">50 Only</span></div>
+        <div class="brow"><span class="brl">Starts</span><span class="brv">May 2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" id="testimonials">
+  <div class="stag">Student Reviews</div>
+  <div class="stitle">TOPPERS WHO <span class="bl">MADE IT</span></div>
+  <div class="tg rv">
+    <div class="tc">
+      <div class="tst">★★★★★</div>
+      <p class="ttx">"The faculty here genuinely cares about your success. Daily doubt sessions and mock tests helped me crack the exam in first attempt. Best decision of my life."</p>
+      <div class="tau"><div class="tav">A</div><div><div class="tnm">Student A</div><div class="trl">IIT Selection — Demo Data</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tst">★★★★★</div>
+      <p class="ttx">"Telugu medium support and personal attention made all the difference. From a small town in AP to a government college — this centre made it possible."</p>
+      <div class="tau"><div class="tav">B</div><div><div class="tnm">Student B</div><div class="trl">NEET Selection — Demo Data</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tst">★★★★★</div>
+      <p class="ttx">"Cleared Group 2 in first attempt. The current affairs sessions and answer writing practice here is exceptional. Highly recommend for civil services aspirants."</p>
+      <div class="tau"><div class="tav">C</div><div><div class="tnm">Student C</div><div class="trl">APPSC Group 2 — Demo Data</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec seca" id="contact">
+  <div class="stag">Contact Us</div>
+  <div class="stitle">START YOUR <span class="bl">JOURNEY</span></div>
+  <div class="ctgrid rv">
+    <div class="ci-list">
+      <div class="cicard"><div class="ciic">📍</div><div><div class="cit">Location</div><div class="cis">Andhra Pradesh, India — Demo Address Only</div></div></div>
+      <div class="cicard"><div class="ciic">✉️</div><div><div class="cit">Email</div><div class="cis">demo@apc.timo.com</div></div></div>
+      <div class="cicard"><div class="ciic">⏰</div><div><div class="cit">Centre Hours</div><div class="cis">Monday – Saturday: 6:00 AM – 9:00 PM · Sunday: 8:00 AM – 2:00 PM</div></div></div>
+      <div class="cicard"><div class="ciic">🌐</div><div><div class="cit">Other Centres</div><div class="cis">Vijayawada · Visakhapatnam · Hyderabad · Tirupati</div></div></div>
+      <div style="background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:12px 14px;">
+        <p style="font-size:.75rem;color:var(--gold2);font-weight:600;margin-bottom:4px;">⚠️ Demo Website Notice</p>
+        <p style="font-size:.72rem;color:var(--gr);line-height:1.5;">This is a demo website created for reference purposes only. No real phone numbers, no real names, and no copyright-protected content is used.</p>
+      </div>
+    </div>
+    <div class="cform">
+      <div class="cftitle">BOOK A FREE DEMO CLASS</div>
+      <div class="frow">
+        <input class="finp" type="text" placeholder="Your Name">
+        <input class="finp" type="email" placeholder="Email Address">
+      </div>
+      <div class="frow">
+        <select class="finp">
+          <option value="">Select Course</option>
+          <option>IIT-JEE</option>
+          <option>NEET</option>
+          <option>Civil Services</option>
+          <option>Bank Exams</option>
+          <option>SSC / Railway</option>
+          <option>10th / Inter</option>
+        </select>
+        <select class="finp">
+          <option value="">Preferred Batch</option>
+          <option>Morning (6AM–9AM)</option>
+          <option>Evening (5PM–8PM)</option>
+          <option>Weekend</option>
+          <option>Online</option>
+        </select>
+      </div>
+      <textarea class="finp" rows="3" placeholder="Any specific requirements..." style="margin-bottom:.8rem;"></textarea>
+      <button class="fsub">🎯 Book Free Demo Class</button>
+      <p class="demo-note">Demo purposes only · No real data collected · No phone number required</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ctasec">
+  <div class="ctaorb"></div>
+  <h2>READY TO <span class="bl">CRACK</span><br>YOUR EXAM?</h2>
+  <p>Join thousands of successful students from AP &amp; Telangana. Limited seats for 2025 batches.</p>
+  <div class="ctabtns">
+    <a href="#contact" class="bblue" style="font-size:.93rem;padding:14px 34px;">🎯 Enroll Now</a>
+    <a href="#courses" class="bgh" style="font-size:.93rem;padding:14px 34px;">View Courses →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div class="flb">
+      <div class="nlogo"><div class="nlsq">D</div><div class="nltx">DEMO COACHING CENTRE</div></div>
+      <p>Premier coaching centre for IIT-JEE, NEET, Civil Services &amp; competitive exams across Andhra Pradesh &amp; Telangana. This is a demo website for reference only.</p>
+    </div>
+    <div><h5>Courses</h5><ul>
+      <li><a href="#courses">IIT-JEE</a></li>
+      <li><a href="#courses">NEET</a></li>
+      <li><a href="#courses">Civil Services</a></li>
+      <li><a href="#courses">Bank Exams</a></li>
+    </ul></div>
+    <div><h5>Company</h5><ul>
+      <li><a href="#why">About Us</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#batches">Batches</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+    </ul></div>
+    <div><h5>Contact</h5><ul>
+      <li><a href="mailto:demo@apc.timo.com">demo@apc.timo.com</a></li>
+      <li><a href="#">Andhra Pradesh, India</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 Demo Coaching Centre · Andhra Pradesh · For Reference Only</span>
+    <span class="demo-badge">⚠️ Demo Website — No Real Data</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
