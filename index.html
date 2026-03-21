@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudPixel AI — Demo Sites</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#06080f;color:#fff;min-height:100vh;}
+.header{padding:24px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-sq{width:36px;height:36px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:1.1rem;color:#fff;}
+.logo-tx{font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:2px;background:linear-gradient(90deg,#3b82f6,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.badge{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:#60a5fa;font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;letter-spacing:0.5px;}
+.hero{padding:60px 5% 40px;text-align:center;}
+.hero h1{font-family:'Bebas Neue';font-size:clamp(2.5rem,5vw,4rem);letter-spacing:2px;line-height:1;margin-bottom:12px;}
+.hero h1 span{color:#3b82f6;}
+.hero p{color:#6b7280;font-size:14px;max-width:480px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;padding:20px 5% 60px;max-width:1100px;margin:0 auto;}
+.card{background:#0f1422;border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;transition:all 0.3s;text-decoration:none;display:block;}
+.card:hover{border-color:rgba(59,130,246,0.3);transform:translateY(-4px);}
+.card-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;}
+.bg1{background:linear-gradient(135deg,#0a1f2e,#1a4a6e);}
+.bg2{background:linear-gradient(135deg,#0a1a2e,#1a3a6e);}
+.bg3{background:linear-gradient(135deg,#0a2e1a,#1a6e3a);}
+.bg4{background:linear-gradient(135deg,#2e1a0a,#6e3a1a);}
+.bg5{background:linear-gradient(135deg,#1a0a2e,#3a1a6e);}
+.bg6{background:linear-gradient(135deg,#2e0a1a,#6e1a3a);}
+.card-body{padding:16px 18px;}
+.card-tag{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#3b82f6;margin-bottom:5px;}
+.card-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:5px;}
+.card-desc{font-size:12px;color:#6b7280;line-height:1.5;margin-bottom:12px;}
+.card-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#3b82f6;transition:gap 0.2s;}
+.card:hover .card-link{gap:9px;}
+.coming{opacity:0.5;pointer-events:none;}
+.coming .card-tag{color:#6b7280;}
+.coming .card-link{color:#6b7280;}
+.soon-badge{position:absolute;top:10px;right:10px;background:rgba(107,114,128,0.8);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;letter-spacing:0.5px;}
+.footer{border-top:1px solid rgba(255,255,255,0.06);padding:20px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-text{font-size:12px;color:#374151;}
+.footer-badge{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);color:#f59e0b;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;}
+</style>
+</head>
+<body>
 
+<div class="header">
+  <div class="logo">
+    <div class="logo-sq">C</div>
+    <div class="logo-tx">CLOUDPIXEL AI</div>
+  </div>
+  <div class="badge">Demo Portfolio</div>
+</div>
+
+<div class="hero">
+  <h1>SAMPLE <span>DEMO</span> WEBSITES</h1>
+  <p>Click any demo below to preview. These are sample websites created for client reference only.</p>
+</div>
+
+<div class="grid">
+
+  <a href="demo-playschool.html" class="card">
+    <div class="card-img bg1">🏫</div>
+    <div class="card-body">
+      <div class="card-tag">Education</div>
+      <div class="card-title">Play School Website</div>
+      <div class="card-desc">Colorful, child-friendly website with admission form, gallery and program details.</div>
+      <div class="card-link">View Demo →</div>
+    </div>
+  </a>
+
+  <a href="demo-coaching-centre.html" class="card">
+    <div class="card-img bg2">📚</div>
+    <div class="card-body">
+      <div class="card-tag">Coaching Centre</div>
+      <div class="card-title">Coaching Centre Website</div>
+      <div class="card-desc">IIT-JEE, NEET, Civil Services coaching with batch info, results and contact form.</div>
+      <div class="card-link">View Demo →</div>
+    </div>
+  </a>
+
+  <a href="demo-clinic.html" class="card coming">
+    <div class="card-img bg3">🏥<span class="soon-badge">COMING SOON</span></div>
+    <div class="card-body">
+      <div class="card-tag">Medical</div>
+      <div class="card-title">Clinic / Hospital Website</div>
+      <div class="card-desc">Doctor profile, appointment booking, services and patient testimonials.</div>
+      <div class="card-link">Coming Soon</div>
+    </div>
+  </a>
+
+  <a href="demo-restaurant.html" class="card coming">
+    <div class="card-img bg4">🍽️<span class="soon-badge">COMING SOON</span></div>
+    <div class="card-body">
+      <div class="card-tag">Food & Dining</div>
+      <div class="card-title">Restaurant / Cafe Website</div>
+      <div class="card-desc">Online menu, table booking, WhatsApp orders and Google Maps integration.</div>
+      <div class="card-link">Coming Soon</div>
+    </div>
+  </a>
+
+  <a href="demo-salon.html" class="card coming">
+    <div class="card-img bg5">💇<span class="soon-badge">COMING SOON</span></div>
+    <div class="card-body">
+      <div class="card-tag">Beauty & Wellness</div>
+      <div class="card-title">Salon & Spa Website</div>
+      <div class="card-desc">Service menu, online booking, Instagram gallery and offers page.</div>
+      <div class="card-link">Coming Soon</div>
+    </div>
+  </a>
+
+  <a href="demo-gym.html" class="card coming">
+    <div class="card-img bg6">🏋️<span class="soon-badge">COMING SOON</span></div>
+    <div class="card-body">
+      <div class="card-tag">Fitness</div>
+      <div class="card-title">Gym & Fitness Website</div>
+      <div class="card-desc">Membership plans, trainer profiles, batch timings and transformation gallery.</div>
+      <div class="card-link">Coming Soon</div>
+    </div>
+  </a>
+
+</div>
+
+<div class="footer">
+  <div class="footer-text">© 2026 CloudPixel AI · cloudpixelai.in · Demo purposes only</div>
+  <div class="footer-badge">⚠️ Demo Websites — No Real Data</div>
+</div>
+
+</body>
+</html>
