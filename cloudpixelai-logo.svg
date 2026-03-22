@@ -1,63 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" width="460" height="120">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" width="480" height="100">
   <defs>
     <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7EC8E3"/>
       <stop offset="100%" stop-color="#4DA8DA"/>
     </linearGradient>
     <linearGradient id="pixelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3A90C4"/>
-      <stop offset="100%" stop-color="#1F6FA3"/>
+      <stop offset="0%" stop-color="#5ab4f0"/>
+      <stop offset="100%" stop-color="#2a80c4"/>
     </linearGradient>
     <clipPath id="cloudMask">
-      <path d="M22,88 Q22,100 34,100 L98,100 Q110,100 110,88 L110,76 Q118,76 123,70 Q128,64 123,57 Q127,50 122,44 Q117,38 110,41 Q107,30 98,27 Q89,24 82,33 Q76,24 66,24 Q54,24 49,34 Q40,31 34,39 Q28,47 33,56 Q24,62 24,72 Q22,76 22,88 Z"/>
+      <path d="M10,78 Q10,90 22,90 L82,90 Q94,90 94,78 L94,66 Q101,66 106,60 Q111,54 106,48 Q110,42 105,36 Q100,30 93,33 Q90,22 82,19 Q74,16 67,25 Q61,16 52,16 Q41,16 36,26 Q28,23 22,31 Q16,39 21,48 Q13,54 13,64 Q10,68 10,78 Z"/>
     </clipPath>
   </defs>
 
-  <!-- Cloud shape -->
-  <path d="M22,88 Q22,100 34,100 L98,100 Q110,100 110,88 L110,76 Q118,76 123,70 Q128,64 123,57 Q127,50 122,44 Q117,38 110,41 Q107,30 98,27 Q89,24 82,33 Q76,24 66,24 Q54,24 49,34 Q40,31 34,39 Q28,47 33,56 Q24,62 24,72 Q22,76 22,88 Z"
+  <path d="M10,78 Q10,90 22,90 L82,90 Q94,90 94,78 L94,66 Q101,66 106,60 Q111,54 106,48 Q110,42 105,36 Q100,30 93,33 Q90,22 82,19 Q74,16 67,25 Q61,16 52,16 Q41,16 36,26 Q28,23 22,31 Q16,39 21,48 Q13,54 13,64 Q10,68 10,78 Z"
         fill="url(#cloudGrad)"/>
 
-  <!-- Cloud outline ring -->
-  <path d="M22,88 Q22,100 34,100 L98,100 Q110,100 110,88 L110,76 Q118,76 123,70 Q128,64 123,57 Q127,50 122,44 Q117,38 110,41 Q107,30 98,27 Q89,24 82,33 Q76,24 66,24 Q54,24 49,34 Q40,31 34,39 Q28,47 33,56 Q24,62 24,72 Q22,76 22,88 Z"
-        fill="none" stroke="#ffffff" stroke-width="2" opacity="0.4"/>
+  <path d="M10,78 Q10,90 22,90 L82,90 Q94,90 94,78 L94,66 Q101,66 106,60 Q111,54 106,48 Q110,42 105,36 Q100,30 93,33 Q90,22 82,19 Q74,16 67,25 Q61,16 52,16 Q41,16 36,26 Q28,23 22,31 Q16,39 21,48 Q13,54 13,64 Q10,68 10,78 Z"
+        fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.35"/>
 
-  <!-- Pixel grid (clipped inside cloud) -->
   <g clip-path="url(#cloudMask)">
-    <!-- Row 1 -->
-    <rect x="50" y="44" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
-    <rect x="63" y="44" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
-    <rect x="76" y="44" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
-    <rect x="89" y="44" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
-    <!-- Row 2 -->
-    <rect x="50" y="57" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
-    <rect x="63" y="57" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
-    <rect x="76" y="57" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
-    <rect x="89" y="57" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
-    <!-- Row 3 -->
-    <rect x="50" y="70" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
-    <rect x="63" y="70" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
-    <rect x="76" y="70" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
-    <rect x="89" y="70" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
-    <!-- Row 4 -->
-    <rect x="50" y="83" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
-    <rect x="63" y="83" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
-    <rect x="76" y="83" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
-    <rect x="89" y="83" width="10" height="10" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
+    <rect x="36" y="32" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
+    <rect x="48" y="32" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
+    <rect x="60" y="32" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
+    <rect x="72" y="32" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.85"/>
+    <rect x="36" y="44" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
+    <rect x="48" y="44" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
+    <rect x="60" y="44" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
+    <rect x="72" y="44" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.9"/>
+    <rect x="36" y="56" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
+    <rect x="48" y="56" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
+    <rect x="60" y="56" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
+    <rect x="72" y="56" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="0.95"/>
+    <rect x="36" y="68" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
+    <rect x="48" y="68" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
+    <rect x="60" y="68" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
+    <rect x="72" y="68" width="9" height="9" rx="1.5" fill="url(#pixelGrad)" opacity="1"/>
   </g>
 
-  <!-- Text: CloudPixel -->
-  <text x="138" y="68"
-        font-family="'Inter', 'Segoe UI', Arial, sans-serif"
-        font-size="36"
-        font-weight="700"
-        fill="#1F3C5A"
+  <text x="116" y="50"
+        font-family="'Inter','Segoe UI',Arial,sans-serif"
+        font-size="32" font-weight="700" fill="#ffffff"
         dominant-baseline="central">CloudPixel</text>
 
-  <!-- Text: AI -->
-  <text x="386" y="68"
-        font-family="'Inter', 'Segoe UI', Arial, sans-serif"
-        font-size="36"
-        font-weight="700"
-        fill="#4DA8DA"
+  <text x="355" y="50"
+        font-family="'Inter','Segoe UI',Arial,sans-serif"
+        font-size="32" font-weight="700" fill="#4DA8DA"
         dominant-baseline="central">AI</text>
 </svg>
