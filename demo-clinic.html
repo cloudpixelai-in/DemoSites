@@ -714,5 +714,24 @@ function toggleFaq(el){
   if(!isOpen){el.classList.add('open');el.querySelector('.faq-q span').textContent='−';}
 }
 </script>
+  <script>
+const themes = [
+  { primary: '#0a6e6e', primaryLight: '#0d8f8f', accent: '#f0a500' },
+  { primary: '#1c3ae0', primaryLight: '#3a5aff', accent: '#f0a500' },
+  { primary: '#6e0a4e', primaryLight: '#8f0d6a', accent: '#f0d000' },
+  { primary: '#0a6e2e', primaryLight: '#0d8f3a', accent: '#ff6a00' },
+  { primary: '#5a0a6e', primaryLight: '#7a0d8f', accent: '#00d4ff' },
+  { primary: '#6e3a0a', primaryLight: '#8f4e0d', accent: '#00e676' },
+];
+function applyTheme() {
+  const hour = new Date().getHours();
+  const t = themes[hour % themes.length];
+  document.documentElement.style.setProperty('--primary', t.primary);
+  document.documentElement.style.setProperty('--primary-light', t.primaryLight);
+  document.documentElement.style.setProperty('--accent', t.accent);
+}
+applyTheme();
+setInterval(applyTheme, 60 * 60 * 1000);
+</script>
 </body>
 </html>
