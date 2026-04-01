@@ -1369,6 +1369,23 @@
       observer.observe(el);
     });
   </script>
-
+<script>
+const themes = [
+  { red: '#e01c1c', orange: '#ff6a00' },
+  { red: '#1c6ae0', orange: '#00aaff' },
+  { red: '#1cb85a', orange: '#00e676' },
+  { red: '#7c1ce0', orange: '#c800ff' },
+  { red: '#e0a01c', orange: '#ffcc00' },
+  { red: '#e0401c', orange: '#ff6600' },
+];
+function applyTheme() {
+  const hour = new Date().getHours();
+  const theme = themes[hour % themes.length];
+  document.documentElement.style.setProperty('--red', theme.red);
+  document.documentElement.style.setProperty('--orange', theme.orange);
+}
+applyTheme();
+setInterval(applyTheme, 60 * 60 * 1000);
+</script>
 </body>
 </html>
