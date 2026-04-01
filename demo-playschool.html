@@ -398,6 +398,24 @@ section{padding:40px 20px}
   <div class="footer-copy">© 2026 Demo Play School · Made with ❤️ for little learners</div>
   <div class="footer-demo">⚠️ This is a DEMO website · Created by <a href="https://cloudpixelai.in" target="_blank">CloudPixel AI</a> · info@cloudpixelai.in</div>
 </footer>
-
+<script>
+const themes = [
+  { orange: '#FF6B35', pink: '#FF4E8E', purple: '#A855F7' },
+  { orange: '#1c6ae0', pink: '#0099cc', purple: '#0055aa' },
+  { orange: '#1cb85a', pink: '#00cc88', purple: '#007744' },
+  { orange: '#e0a01c', pink: '#cc6600', purple: '#aa4400' },
+  { orange: '#7c1ce0', pink: '#aa00ff', purple: '#5500cc' },
+  { orange: '#e0401c', pink: '#cc2200', purple: '#881100' },
+];
+function applyTheme() {
+  const hour = new Date().getHours();
+  const theme = themes[hour % themes.length];
+  document.documentElement.style.setProperty('--orange', theme.orange);
+  document.documentElement.style.setProperty('--pink', theme.pink);
+  document.documentElement.style.setProperty('--purple', theme.purple);
+}
+applyTheme();
+setInterval(applyTheme, 60 * 60 * 1000);
+</script>
 </body>
 </html>
