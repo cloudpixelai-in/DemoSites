@@ -532,5 +532,25 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.07});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 </script>
+  <script>
+const themes = [
+  { blue: '#3b82f6', blue2: '#60a5fa', gold: '#f59e0b', gold2: '#fbbf24' },
+  { blue: '#e01c1c', blue2: '#ff6a00', gold: '#ff9900', gold2: '#ffcc00' },
+  { blue: '#1cb85a', blue2: '#00e676', gold: '#00cc88', gold2: '#00ffaa' },
+  { blue: '#7c1ce0', blue2: '#c800ff', gold: '#aa00ff', gold2: '#dd88ff' },
+  { blue: '#0099cc', blue2: '#00ccff', gold: '#0066ff', gold2: '#44aaff' },
+  { blue: '#cc5500', blue2: '#ff8800', gold: '#ffaa00', gold2: '#ffdd00' },
+];
+function applyTheme() {
+  const hour = new Date().getHours();
+  const t = themes[hour % themes.length];
+  document.documentElement.style.setProperty('--blue', t.blue);
+  document.documentElement.style.setProperty('--blue2', t.blue2);
+  document.documentElement.style.setProperty('--gold', t.gold);
+  document.documentElement.style.setProperty('--gold2', t.gold2);
+}
+applyTheme();
+setInterval(applyTheme, 60 * 60 * 1000);
+</script>
 </body>
 </html>
